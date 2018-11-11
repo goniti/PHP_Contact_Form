@@ -22,12 +22,47 @@ h2{
     font-weight: bold;
     color: #fff;
 }
-label{
-    font-weight: bold;
+.blue{
+    color: #0069d6;
 }
 #contact-form{
     font-size: 20px;
     background: #fff;
     padding: 40px;
     border-radius: 10px;
+}
+.form-control{
+    height: 50px;
+    font-size: 18px;
+}
+.comments{
+    font-style: italic;
+    font-size: 18px;
+    color: #d82c2e;
+    height: 25px;
+}
+#contact-form input[type=submit]{
+    margin: 40px auto 0px;
+    display: block;
+}
+.button1{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #ffa500;
+    color: #fff;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 18px;
+    transition: all 0.3s ease-in 0s;    
+}
+.button1:hover{
+    background: #333;
+    border-color: #ffa500;
+}
+.thank-you{
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 22px;
 }
