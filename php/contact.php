@@ -1,14 +1,14 @@
 <?php 
     $array = array("firstname" => "", "name" => "", "email" => "", "phone" => "", "message" => "", "firstnameError" => "", "nameError" => "", "emailError" => "", "phoneError" => "", "messageError" => "", "isSuccess" => false);
-    
     $emailTo = "EMAIL@DOMAINE.COM";
+
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        $array["firstname"]  = verifyInput($_POST["firstname"]);
-        $array["name"]       = verifyInput($_POST["name"]);
-        $array["email"]      = verifyInput($_POST["email"]);
-        $array["phone"]      = verifyInput($_POST["phone"]);
-        $array["message"]    = verifyInput($_POST["message"]);
+        $array["firstname"]  = test_input($_POST["firstname"]);
+        $array["name"]       = test_input($_POST["name"]);
+        $array["email"]      = test_input($_POST["email"]);
+        $array["phone"]      = test_input($_POST["phone"]);
+        $array["message"]    = test_input($_POST["message"]);
         $array["isSuccess"]  = true;
         $emailText = "";
 
@@ -61,22 +61,20 @@
         echo json_encode($array);
     }
 
-    function isPhone($phone)
-    {   # Regular Expression / preg_match Phone-Numbers "/^[0-9 ]*$/"
-        return preg_match("/^[\+0-9\-\/\(\)\.\s]*$/", $phone);
-    }
-
-    function isEmail($email)
+    function isEmail($email) 
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
-
-    function verifyInput($data)
+    function isPhone($phone) 
     {
-        $var = trim($data);
-        $var = stripslashes($data);
-        $var = htmlspecialchars($data);
-        return $data;
+        return preg_match("/^[0-9 ]*$/",$phone);
     }
-
+    function test_input($data) 
+    {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
+ 
 ?>
